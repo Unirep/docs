@@ -18,7 +18,7 @@ hash5(EPOCH_KEY_NULLIFIER_DOMAIN, identityNullifier, epoch, nonce, 0)
 * nullifier of a reputation spent is computed by
 
 ```
-hash5(REPUTATION_NULLIFIER_DOMAIN, identityNullifier, epoch, nonce, 0)
+hash5(REPUTATION_NULLIFIER_DOMAIN, identityNullifier, epoch, nonce, attesterId)
 ```
 
 {% hint style="info" %}
