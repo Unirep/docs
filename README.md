@@ -1,29 +1,28 @@
-# Welcome
+---
+description: What is UniRep?
+layout: landing
+---
 
-**UniRep** is a _private_ and _nonrepudiable_ repuation system. Users can receive positive and negative reputation from attesters, and voluntarily prove that they have at least certain amount of reputation without revealing the exact amount. Moreover, users cannot refuse to receive reputation from an attester.
+# 👏 Welcome
 
-The high-level goal for **UniRep** is to be a base layer on top of which anyone can easily build custom, yet interoperable, reputation systems, For instance, users could create combined zero-knowledge proofs of reputation across different social media platforms, consumer apps, or financial applications, in order to provide holistic, private, and trustworthy information about themselves to others.
+![UniRep: Privacy & provable reputation](.gitbook/assets/unirep.png)
+
+### Overview
+
+**UniRep** (**Uni**versal **Rep**utation) is a _private_ and _non-repudiable_ **reputation system**. Users can&#x20;
+
+1. Receive positive and negative reputation from attesters.
+2. Voluntarily prove that they have at least certain amount of reputation without revealing the exact amount.&#x20;
+3. Moreover, users cannot refuse to receive reputation from an attester.
+
+The high-level goal for **UniRep** is to be a base layer on top of which anyone can easily build _custom_, yet _interoperable_, reputation systems, For instance, users could create combined zero-knowledge proofs of reputation across different social media platforms, consumer apps, or financial applications, in order to provide holistic, private, and trustworthy information about themselves to others.
 
 UniRep is originally proposed by BarryWhiteHat in [this ethresear.ch post](https://ethresear.ch/t/anonymous-reputation-risking-and-burning/3926)
 
-## Download and Install
+### Quick Links
 
-```
-git clone https://github.com/Unirep/Unirep.git && \
-cd Unirep/ && \
-yarn install
-```
+* [Protocol introduction](introduction.md)
+* [Getting started](getting-started.md)
 
-## Build
 
-```
-yarn build
-```
 
-to build the circuits
-
-## Testing
-
-```
-yarn test
-```
