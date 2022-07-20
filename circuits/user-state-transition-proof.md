@@ -4,12 +4,12 @@ description: The zero-knowledge circuit of user state transition proof in UniRep
 
 # User State Transition Proof
 
-The [user state transition](../terms-definitions/user-state-transition.md) proof is used to process attestations from the latest epoch the user transitioned and then compute the latest [global state tree](../terms-definitions/trees.md#global-state-tree) leaf.
+The [user state transition](../protocol/glossary/user-state-transition.md) proof is used to process attestations from the latest epoch the user transitioned and then compute the latest [global state tree](../protocol/glossary/trees.md#global-state-tree) leaf.
 
 The user state transition circuit checks that
 
-1. The user has [registered](https://github.com/vivianjeng/UniRep/blob/git-book/introduction/README.md#1.-registration) and performed [user state transition](../terms-definitions/user-state-transition.md) in the previous epoch.
-2.  The [user state tree](../terms-definitions/trees.md#user-state-tree) is updated correctly by the attestations, and the same attestations are chained by hash functions.
+1. The user has [registered](https://github.com/vivianjeng/UniRep/blob/git-book/introduction/README.md#1.-registration) and performed [user state transition](../protocol/glossary/user-state-transition.md) in the previous epoch.
+2.  The [user state tree](../protocol/glossary/trees.md#user-state-tree) is updated correctly by the attestations, and the same attestations are chained by hash functions.
 
     * For example, the original user state tree root is `r_1`, and the original user state tree leaf has 5 positive repuation
 
@@ -20,14 +20,14 @@ The user state transition circuit checks that
     * An incoming attestation has
       * `attester_id = 1`
       * `pos_rep = 3`
-    * compute the hash of [reputation](../terms-definitions/reputation.md#reputation)
+    * compute the hash of [reputation](../protocol/glossary/reputation.md#reputation)
 
     ```
     hash_reputation = hash(5 + 3, 0, 0, 0, 0)
     ```
 
     * compute the updated user state tree root `r_2` with user state tree leaf `hash(8, 0, 0, 0, 0)` in the leaf index `1`
-    * compute the hash of [attestation](../terms-definitions/reputation.md#attestation)
+    * compute the hash of [attestation](../protocol/glossary/reputation.md#attestation)
 
     ```
     hash_attestation = hash(1, 3, 0, 0, 0)
@@ -38,7 +38,7 @@ The user state transition circuit checks that
     ```
     hash_chain = hash(hash_attestation, hash_chain)
     ```
-3. After all attestations of all epoch keys are processed, the circuit seals all hash chains and computes the [epoch tree](../terms-definitions/trees.md#epoch-tree). (If the output epoch tree root mismatches others' epoch tree roots, then the user state transition proof is invalid because the user process attestations in a wrong way.)
+3. After all attestations of all epoch keys are processed, the circuit seals all hash chains and computes the [epoch tree](../protocol/glossary/trees.md#epoch-tree). (If the output epoch tree root mismatches others' epoch tree roots, then the user state transition proof is invalid because the user process attestations in a wrong way.)
 4. Compute the updated global state tree leaf by
 
 ```

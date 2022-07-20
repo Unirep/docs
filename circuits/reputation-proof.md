@@ -16,7 +16,7 @@ Users can use a reputation proof to claim that how the reputation is from a give
     ```
     hash(graffiti_preimage) == graffiti
     ```
-3.  The [reputation nullifiers](../terms-definitions/nullifiers.md#reputation-nullifiers) are computed correctly i.e.
+3.  The [reputation nullifiers](../protocol/glossary/nullifiers.md#reputation-nullifiers) are computed correctly i.e.
 
     ```
     // for all nonces
@@ -25,7 +25,7 @@ Users can use a reputation proof to claim that how the reputation is from a give
     reputation_nullifiers = hash5(REPUTATION_NULLIFIER_DOMAIN, identity_nullifier, epoch, nonce, 0)
     ```
 
-The circuit also checks if the user has [registered](https://github.com/vivianjeng/UniRep/blob/git-book/introduction/README.md#1.-registration) and performed [user state transition](../terms-definitions/user-state-transition.md) in the claimed epoch.
+The circuit also checks if the user has [registered](https://github.com/vivianjeng/UniRep/blob/git-book/introduction/README.md#1.-registration) and performed [user state transition](../protocol/glossary/user-state-transition.md) in the claimed epoch.
 
 ## Public inputs
 

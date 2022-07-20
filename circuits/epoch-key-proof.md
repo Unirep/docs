@@ -4,7 +4,7 @@ description: The zero-knowledge circuit of epoch key proof in UniRep
 
 # Epoch Key Proof
 
-[Epoch key](../terms-definitions/epoch-key.md) is computed by
+[Epoch key](../protocol/glossary/epoch-key.md) is computed by
 
 ```
 hash5(identityNullifier, epoch, nonce, 0, 0)
@@ -14,7 +14,7 @@ The epoch key proof in UniRep is used to prove that
 
 1. The epoch key is in the epoch that user claims
 2. The epoch key nonce is between `0` and `numEpochKeyNoncePerEpoch - 1`
-3. The owner of the epoch key has [registered](https://github.com/vivianjeng/UniRep/blob/git-book/introduction/README.md#1.-registration) in UniRep and has performed the [user state transition](../terms-definitions/user-state-transition.md) in the latest epoch. In other words, the user has a leaf in the global state tree.
+3. The owner of the epoch key has [registered](https://github.com/vivianjeng/UniRep/blob/git-book/introduction/README.md#1.-registration) in UniRep and has performed the [user state transition](../protocol/glossary/user-state-transition.md) in the latest epoch. In other words, the user has a leaf in the global state tree.
 
 ## Public inputs
 
