@@ -1,6 +1,5 @@
 ---
 description: What is UniRep?
-layout: landing
 ---
 
 # 👏 Welcome
