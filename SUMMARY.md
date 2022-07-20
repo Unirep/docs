@@ -2,7 +2,7 @@
 
 * [👏 Welcome](README.md)
 * [🧩 Introduction](introduction.md)
-* [Getting Started](getting-started.md)
+* [🎮 Getting Started](getting-started.md)
 
 ## Terms Definition <a href="#terms" id="terms"></a>
 
