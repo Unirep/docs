@@ -4,37 +4,44 @@
 * [🧩 Introduction](introduction.md)
 * [🎮 Getting Started](getting-started.md)
 
-## Terms Definition <a href="#terms" id="terms"></a>
+## ☀ Protocol
 
-* [Users and Attesters](terms/users-and-attesters.md)
-* [Epoch](terms/epoch.md)
-* [Epoch Key](terms/epoch-key.md)
-* [Reputation](terms/reputation.md)
-* [Trees](terms/trees.md)
-* [Nullifiers](terms/nullifiers.md)
-* [Epoch Transition](terms/epoch-transition.md)
-* [User State Transition](terms/user-state-transition.md)
+* [Terms Definitions](protocol/terms-definitions/README.md)
+  * [Users and Attesters](protocol/terms-definitions/users-and-attesters.md)
+  * [Epoch](protocol/terms-definitions/epoch.md)
+  * [Epoch Key](protocol/terms-definitions/epoch-key.md)
+  * [Reputation](protocol/terms-definitions/reputation.md)
+  * [Trees](protocol/terms-definitions/trees.md)
+  * [Nullifiers](protocol/terms-definitions/nullifiers.md)
+  * [Epoch Transition](protocol/terms-definitions/epoch-transition.md)
+  * [User State Transition](protocol/terms-definitions/user-state-transition.md)
+* [Circuits](protocol/circuits/README.md)
+  * [Epoch Key Proof](protocol/circuits/epoch-key-proof.md)
+  * [Reputation Proof](protocol/circuits/reputation-proof.md)
+  * [User Sign Up Proof](protocol/circuits/user-sign-up-proof.md)
+  * [User State Transition Proof](protocol/circuits/user-state-transition-proof.md)
+* [Contract](protocol/contract/README.md)
+  * [Unirep Smart Contract](protocol/contract/unirep-smart-contract.md)
 
-## Circuits
+## 🌈 Package usage <a href="#package" id="package"></a>
 
-* [Epoch Key Proof](circuits/epoch-key-proof.md)
-* [Reputation Proof](circuits/reputation-proof.md)
-* [User Sign Up Proof](circuits/user-sign-up-proof.md)
-* [User State Transition Proof](circuits/user-state-transition-proof.md)
+* [@unirep/crypto](package/unirep-crypto.md)
+* [@unirep/circuits](package/unirep-circuits.md)
+* [@unirep/contracts](package/unirep-contracts.md)
+* [@unirep/core](package/unirep-core.md)
+* [@unirep/subgraph](package/unirep-subgraph.md)
+* [cli](package/cli/README.md)
+  * [Deploy Unirep Contract](package/cli/deploy-unirep-contract.md)
+  * [User Identity](package/cli/user-identity.md)
+  * [User Sign Up](package/cli/user-sign-up.md)
+  * [Epoch Key And Proof](package/cli/epoch-key-and-proof.md)
+  * [Attestation](package/cli/attestation.md)
+  * [Epoch transition](package/cli/epoch-transition.md)
+  * [User state transition](package/cli/user-state-transition.md)
+  * [Reputation Proof](package/cli/reputation-proof.md)
+  * [Airdrop Reputation](package/cli/airdrop-reputation.md)
+  * [Spend Reputation](package/cli/spend-reputation.md)
 
-## Contract
+## 🌻 Applications
 
-* [Unirep Smart Contract](contract/unirep-smart-contract.md)
-
-## Command-line Interface <a href="#cli" id="cli"></a>
-
-* [Deploy Unirep Contract](cli/deploy-unirep-contract.md)
-* [User Identity](cli/user-identity.md)
-* [User Sign Up](cli/user-sign-up.md)
-* [Epoch Key And Proof](cli/epoch-key-and-proof.md)
-* [Attestation](cli/attestation.md)
-* [Epoch transition](cli/epoch-transition.md)
-* [User state transition](cli/user-state-transition.md)
-* [Reputation Proof](cli/reputation-proof.md)
-* [Airdrop Reputation](cli/airdrop-reputation.md)
-* [Spend Reputation](cli/spend-reputation.md)
+* [Unirep Social](applications/unirep-social.md)
