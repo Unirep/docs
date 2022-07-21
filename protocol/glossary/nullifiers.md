@@ -10,12 +10,11 @@
 * Nullifier of an epoch key is computed by
 
 ```typescript
-hash5(
+hash(
     EPOCH_KEY_NULLIFIER_DOMAIN, 
     identityNullifier, 
     epoch, 
-    nonce, 
-    0
+    nonce
 )
 ```
 
@@ -26,7 +25,7 @@ hash5(
 * Nullifier of a reputation spent is computed by
 
 ```typescript
-hash5(
+hash(
     REPUTATION_NULLIFIER_DOMAIN, 
     identityNullifier, 
     epoch, 
@@ -38,5 +37,5 @@ hash5(
 * The `nonce` can only be within `0` to `posRep-negRep-1` with the given attesterID.
 
 {% hint style="info" %}
-* NOTE: `EPOCH_KEY_NULLIFIER_DOMAIN` and `REPUTATION_NULLIFIER_DOMAIN` are used to prevent mixed-up of epoch key nullifiers and reputation nullifiers.
+**NOTE:** `EPOCH_KEY_NULLIFIER_DOMAIN` and `REPUTATION_NULLIFIER_DOMAIN` are used to prevent mixed-up of epoch key nullifiers and reputation nullifiers.
 {% endhint %}

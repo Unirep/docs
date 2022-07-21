@@ -2,7 +2,7 @@
 
 ## Actors in Unirep
 
-### User
+### User 👤
 
 There are users who **receive reputation** and **prove received reputation**.
 
@@ -10,7 +10,7 @@ There are users who **receive reputation** and **prove received reputation**.
 * User's <mark style="color:green;">`identityCommitment`</mark> is revealed at this time and it will be recorded in the contract to prevent double signup.
 * The identity commitment will not reveal the actual <mark style="color:red;">`identity`</mark> of the user but at the same time allow user to prove identity in the circuit.
 
-### Attester
+### Attester 👑
 
 There are attesters who **give attestations** to users and the attestations become the users' reputation.
 

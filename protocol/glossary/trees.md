@@ -14,7 +14,7 @@ description: The tree structures that are used in UniRep protocol.
 * Hash of the reputation:
 
 ```typescript
-const hashReputation = hash5(posRep, negRep, graffiti, signUp, 0)
+const hashReputation = hash(posRep, negRep, graffiti, signUp)
 ```
 
 where
@@ -27,7 +27,7 @@ where
 If there is no reputation from attester, then the leaf stores a default reputation:
 
 ```typescript
-const defaultReputation = hash5(0,0,0,0,0)
+const defaultReputation = hash(0,0,0,0)
 ```
 
 {% hint style="info" %}
@@ -38,8 +38,8 @@ The index `0` is reserved to have no reputation (default reputation) since the a
 
 * A global state tree stores the updated user state after a user signs up and a user performs the [user state transition](user-state-transition.md).
 * It is an **incremental merkle tree** with it's leaves storing users' `identityCommitment`s and `userStateRoot`s, e.g.,
-  * a global state tree leaf = `hash(identityCommitment, userStateRoot)`
-  * The default leaf if `0`
+  * a global state tree leaf: `hash(`<mark style="color:green;">`identityCommitment`</mark>`,`` `<mark style="color:red;">`userStateTreeRoot`</mark>`)`
+  * The default leaf is `0`
 
 ![An example of global state tree](../../.gitbook/assets/3.png)
 
@@ -67,7 +67,7 @@ The hash chain is **sealed** because it prevents epoch keys from receiving attes
 See: [Epoch Transition](epoch-transition.md)
 {% endhint %}
 
-![An example of epoch tree with epoch key 1 and epoch key 3 has non-zero attestations.](<../../.gitbook/assets/epoch tree.png>)
+![An example of epoch tree with epoch key 1 and epoch key 3 has non-zero attestations.](<../../.gitbook/assets/epoch tree (1).png>)
 
 An attestation includes the following data:
 

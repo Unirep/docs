@@ -14,7 +14,7 @@ description: Definition of reputation in UniRep
 * The hash of the reputation is computed by the [Poseidon hash](https://www.poseidon-hash.info/) function.
 
 ```typescript
-const hashReputation = hash5(posRep, negRep, graffiti, signUp, 0)
+const hashReputation = hash(posRep, negRep, graffiti, signUp)
 ```
 
 * The overall **reputation status** of a user is stored in the user's [User State Tree](trees.md#user-state-tree)
@@ -27,7 +27,7 @@ const hashReputation = hash5(posRep, negRep, graffiti, signUp, 0)
 * The hash of attestation is computed by
 
 ```typescript
-const hashAttestation = hash5(attesterId, posRep, negRep, graffiti, signUp)
+const hashAttestation = hash(attesterId, posRep, negRep, graffiti, signUp)
 ```
 
 *   The attestations to an epoch key would be chained together. A hashchain would be formed by the hashes of the attestations.
@@ -35,16 +35,17 @@ const hashAttestation = hash5(attesterId, posRep, negRep, graffiti, signUp)
     * For example, **Hash chain** is computed by
 
     ```
-    hashChainResult = hash(hashAttestation_3, hash(hashAttestation_2, hash(hashAttestation_1, 0)))
+    const hashChainResult = hash(hashAttestation_3, hash(hashAttestation_2, hash(hashAttestation_1, 0)))
     ```
 
-    * So user can not omit any attestation because the [circuit](../../circuits/user-state-transition-proof.md) requires each attestation in the hashchain to be processed.
+    * So user **can not omit any attestation** because the [circuit](../../circuits/user-state-transition-proof.md) requires each attestation in the hashchain to be processed. <mark style="color:red;">**->**</mark> <mark style="color:red;"></mark><mark style="color:red;"></mark> <mark style="color:red;"></mark><mark style="color:red;">**Non-repudiable**</mark>
     * if user omits an attestation, then the computed hashchain would not match the one in the Unirep contract
 
-***
+{% hint style="info" %}
+See also
 
-* See also
-  * [Trees](trees.md)
-  * [Epoch Transition](epoch-transition.md)
-  * [User State Transition](user-state-transition.md)
-  * [User State Transition Proof](../../circuits/user-state-transition-proof.md)
+* [Trees](trees.md)
+* [Epoch Transition](epoch-transition.md)
+* [User State Transition](user-state-transition.md)
+* [User State Transition Proof](../../circuits/user-state-transition-proof.md)
+{% endhint %}
