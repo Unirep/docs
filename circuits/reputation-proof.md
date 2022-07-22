@@ -22,10 +22,16 @@ Users can use a reputation proof to claim that how the reputation is from a give
     // for all nonces
     nonce >= 0
     nonce < pos_rep - neg_rep
-    reputation_nullifiers = hash5(REPUTATION_NULLIFIER_DOMAIN, identity_nullifier, epoch, nonce, 0)
+    reputation_nullifiers = hash5(
+        REPUTATION_NULLIFIER_DOMAIN, 
+        identity_nullifier, 
+        epoch, 
+        nonce, 
+        attesterId
+    )
     ```
 
-The circuit also checks if the user has [registered](https://github.com/vivianjeng/UniRep/blob/git-book/introduction/README.md#1.-registration) and performed [user state transition](../protocol/glossary/user-state-transition.md) in the claimed epoch.
+The circuit also checks if the user has [registered](https://unirep.gitbook.io/unirep/protocol/glossary/users-and-attesters#user) and performed [user state transition](../protocol/glossary/user-state-transition.md) in the claimed epoch.
 
 ## Public inputs
 
@@ -45,7 +51,6 @@ The circuit also checks if the user has [registered](https://github.com/vivianje
 ## Private inputs
 
 * `epoch_key_nonce`
-* `identity_pk`
 * `identity_nullifier`
 * `identity_trapdoor`
 * `user_tree_root`
@@ -63,12 +68,48 @@ The circuit also checks if the user has [registered](https://github.com/vivianje
 
 ### 1. Check if user exists in the Global State Tree and verify epoch key
 
+Check the constrains in epoch key proof.
+
+{% hint style="info" %}
+See: [Epoch Key Proof circuit](epoch-key-proof.md)
+{% endhint %}
+
 ### 2. Check if the reputation given by the attester is in the user state tree
+
+Check if `hash(pos_rep, neg_rep, graffiti, sign_up)` is one of the leaves in the user state tree of root `user_tree_root`.
 
 ### 3. Check if reputation nullifiers are valid
 
+Check if `rep_nonce[i] < pos_rep - neg_rep` for all output `rep_nullifiers[i]`.
+
+Check if&#x20;
+
+```javascript
+rep_nullifier[i] = hash(
+    REPUTATION_NULLIFIER_DOMAIN = 2, 
+    identity_nullifier, 
+    epoch, 
+    rep_nonce[i], 
+    attester_id
+)
+```
+
+{% hint style="info" %}
+See: [Reputation nullifiers](../protocol/glossary/nullifiers.md#reputation-nullifiers)
+{% endhint %}
+
 ### 4. Check if user has reputation greater than `min_rep`
+
+Check if&#x20;
+
+1. `min_rep > 0`&#x20;
+2. `pos_rep - neg_rep >= 0`
+3. `pos_rep - neg_rep >= min_rep`
 
 ### 5. Check pre-image of graffiti
 
-See the whole circuit in [circuits/proveReputation.circom](https://github.com/appliedzkp/UniRep/blob/7e5cf425242134f73b6131778549b6039ea20a9b/circuits/proveReputation.circom)
+Check if `hash(graffiti_pre_image) == graffiti`.
+
+{% hint style="info" %}
+See the whole circuit in [circuits/proveReputation.circom](https://github.com/Unirep/Unirep/blob/main/packages/circuits/circuits/proveReputation.circom)
+{% endhint %}
