@@ -8,14 +8,14 @@ description: Definition of epoch transition in UniRep
 * In `beginEpochTransition()`
   * An `EpochEnded` event is emitted and `currentEpoch` increases by 1.
 
-![currentEpoch increases by 1.](<../../.gitbook/assets/epoch (1).png>)
+![currentEpoch is increased by one.](<../../.gitbook/assets/截圖 2022-07-22 上午11.58.55.png>)
 
 * After the `EpochEnded` event is emitted, all epoch keys attested during this epoch will have their [hash chain](reputation.md) sealed
   * by _**sealed**_ it means that the hash chain is hashed again with `1`, e.g., \
     `hash(1, originalHashChain)`
   * if an epoch key received no attestation, it's hash chain would be `hash(1, 0)`
 
-![Example of sealing hash chains.](../../.gitbook/assets/seal.png)
+![](<../../.gitbook/assets/截圖 2022-07-22 上午11.59.45.png>)
 
 * After hash chain of the epoch keys are sealed, these epoch keys and their hash chain will be inserted into the [epoch tree](trees.md#epoch-tree) of this epoch
   * there's only one epoch tree for every epoch.
