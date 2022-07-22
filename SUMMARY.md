@@ -2,7 +2,10 @@
 
 * [👏 Welcome](README.md)
 * [🧩 Introduction](introduction.md)
-* [🎮 Getting Started](getting-started.md)
+* [🎮 Getting Started](getting-started/README.md)
+  * [Install & build 🛠](getting-started/install-and-build.md)
+  * [Example flow using cli commands 🔌](getting-started/example-flow-using-cli-commands.md)
+  * [Computation happens off-chain ℹ️](getting-started/computation-happens-off-chain.md)
 
 ## ☀ Protocol
 

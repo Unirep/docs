@@ -1,31 +1,8 @@
----
-description: This tutorial will help you run UniRep examples
----
+# Example flow using cli commands 🔌
 
-# 🎮 Getting Started
+### 0. Install and build the repository
 
-## Install and Build 🛠
-
-### 1. Download UniRep repository from GitHub
-
-```bash
-git clone https://github.com/Unirep/Unirep.git && \
-cd Unirep
-```
-
-### 2. Install packages and build
-
-```bash
-yarn && yarn build
-```
-
-### 3. (Optional) Run test scripts
-
-```bash
-yarn test
-```
-
-## Example flow using cli commands 🔌
+See: [Install & build 🛠](install-and-build.md)&#x20;
 
 ### 1. Spin up the testing chain
 
@@ -63,7 +40,7 @@ npx ts-node cli/index.ts deploy -d $USER_PRIVATE_KEY
 {% hint style="info" %}
 **NOTE:** `-d` is the deployer's private key.
 
-See: [cli/deploy](cli/deploy-unirep-contract.md) for more `deploy` options.
+See: [cli/deploy](../cli/deploy-unirep-contract.md) for more `deploy` options.
 {% endhint %}
 
 Then the Unirep contract address will be printed:
@@ -117,7 +94,7 @@ npx ts-node cli/index.ts userSignUp \
 
 `-c` is the identity commitment
 
-See: [cli/userSignUp ](cli/user-sign-up.md#usersignup)for more `userSignUp` options.
+See: [cli/userSignUp ](../cli/user-sign-up.md#usersignup)for more `userSignUp` options.
 {% endhint %}
 
 ### 5. Attester signs up
@@ -131,7 +108,7 @@ npx ts-node cli/index.ts attesterSignUp \
 {% hint style="info" %}
 **NOTE:** `-d` is attester's private key, this private key is to be used only by this attester hereafter
 
-See: [cli/attesterSignUp](cli/user-sign-up.md#attestersignup) for more `attesterSignUp` options.
+See: [cli/attesterSignUp](../cli/user-sign-up.md#attestersignup) for more `attesterSignUp` options.
 {% endhint %}
 
 * The attester ID will be printed, for example
@@ -158,7 +135,7 @@ npx ts-node cli/index.ts genEpochKeyAndProof \
 {% hint style="info" %}
 **NOTE:** `-id` is user's identity and `-n` is epoch key nonce which should be less than the system parameter `maxEpochKeyNonce`
 
-See: [cli/genEpochKeyAndProof](cli/epoch-key-and-proof.md#genepochkeyandproof) for more `genEpochKeyAndProof` options.
+See: [cli/genEpochKeyAndProof](../cli/epoch-key-and-proof.md#genepochkeyandproof) for more `genEpochKeyAndProof` options.
 
 **NOTE:** epoch key and base64url encoded epoch key proof and public signals will be printed and they should be handed to attester to be verified, for example:
 {% endhint %}
@@ -193,7 +170,7 @@ npx ts-node cli/index.ts verifyEpochKeyProof \
 
 `-pf` is the epoch key proof
 
-See: [cli/verifyEpochKeyProof](cli/epoch-key-and-proof.md#verifyepochkeyproof) for more `verifyEpochKeyProof` options.
+See: [cli/verifyEpochKeyProof](../cli/epoch-key-and-proof.md#verifyepochkeyproof) for more `verifyEpochKeyProof` options.
 {% endhint %}
 
 If the epoch key proof is successfully verified, it prints
@@ -216,7 +193,7 @@ npx ts-node cli/index.ts submitEpochKeyProof \
 ```
 
 {% hint style="info" %}
-**NOTE:** See [cli/submitEpochKeyProof](cli/epoch-key-and-proof.md#submitepochkeyproof) for more `submitEpochKeyProof` options.
+**NOTE:** See [cli/submitEpochKeyProof](../cli/epoch-key-and-proof.md#submitepochkeyproof) for more `submitEpochKeyProof` options.
 {% endhint %}
 
 * The proof index will be printed, for example:
@@ -263,7 +240,7 @@ Transaction hash: 0xcfa6432b326343c679285cebc8a7cefbb0489ad4a636d4e87b649d27892b
 
 `-s` (optional) is the sign up flag to give to the user to indicate the attester authenticates the user's membership.
 
-See: [cli/attest](cli/attestation.md) for more `attest` options
+See: [cli/attest](../cli/attestation.md) for more `attest` options
 {% endhint %}
 
 ### 10. Epoch transition
@@ -282,7 +259,7 @@ npx ts-node cli/index.ts epochTransition \
 
 `-t` indicates it's testing environment so it will fast forward to the end of epoch
 
-See: [cli/epochTransition](cli/epoch-transition.md) for more `epochTransition` options
+See: [cli/epochTransition](../cli/epoch-transition.md) for more `epochTransition` options
 {% endhint %}
 
 After epoch transition transaction is submitted successfully, the message will be printed:
@@ -303,7 +280,7 @@ npx ts-node cli/index.ts userStateTransition \
 ```
 
 {% hint style="info" %}
-See [cli/userStateTransition](cli/user-state-transition.md) for more `userStateTransition` options
+See [cli/userStateTransition](../cli/user-state-transition.md) for more `userStateTransition` options
 {% endhint %}
 
 If user performs user state transition successfully, the message will be printed:
@@ -335,7 +312,7 @@ npx ts-node cli/index.ts genReputationProof \
 
 `-n` is the nonce of the output epoch key, it can be used to receive attestation
 
-See: [cli/genReputationProof](cli/reputation-proof.md#genreputationproof) for more `genReputationProof` options
+See: [cli/genReputationProof](../cli/reputation-proof.md#genreputationproof) for more `genReputationProof` options
 {% endhint %}
 
 The proof will be printed and it should be handed to the receiver of this proof, for example,
@@ -364,7 +341,7 @@ npx ts-node cli/index.ts verifyReputationProof \
 ```
 
 {% hint style="info" %}
-See: [cli/verifyReputationProof](cli/reputation-proof.md#verifyreputationproof) for more `verifyReputationProof` options
+See: [cli/verifyReputationProof](../cli/reputation-proof.md#verifyreputationproof) for more `verifyReputationProof` options
 {% endhint %}
 
 If the proof is verified valid, the message will be printed:
@@ -386,7 +363,7 @@ npx ts-node cli/index.ts genUserSignUpProof \
 {% hint style="info" %}
 **NOTE:** `-a` is attester's id. If the attester gives the attestation with a sign up flag, the user can generate a sign up proof to prove the membership from the attester.
 
-See: [cli/genUserSignUpProof](cli/airdrop-reputation.md#genusersignupproof) for more `genUserSignUpProof` options.
+See: [cli/genUserSignUpProof](../cli/airdrop-reputation.md#genusersignupproof) for more `genUserSignUpProof` options.
 {% endhint %}
 
 The proof will be printed and it should be handed to the receiver of this proof, for example,
@@ -417,13 +394,3 @@ npx ts-node cli/index.ts verifyUserSignUpProof \
 {% hint style="info" %}
 **NOTE:** See: cli/verifyUserSignUpProof for more `verifyUserSignUpProof` options.
 {% endhint %}
-
-## Computation happens <mark style="color:red;">off-chain ℹ️</mark>
-
-After you read through the introduction above, you should have a picture of how Unirep works. User/attester registers on-chain, attester submits attestations on-chain, user submits proof to update his state and also the global state tree of current epoch in Unirep contract. These all happens on-chain, including proof verification, updating global state trees and generating epoch trees, but these computation could be very expensive!
-
-There are no on-chain assets that required latest state of the contract in order to transfer its ownership or to apply computation on it. There's no such asset in Unirep, all you have is one's reputation and proving one's reputation does not has to be done on-chain, instead the proof is transmitted to the verifier off-chain. So there's really no need to do all these computation on-chain!
-
-So that's why the current implementation of Unirep is taking the **LazyLedger**-like approach - the Unirep contract (i.e., the underlying Ethereum chain) is serving as the data availability layer and the computations including proof verification all happen on top of this data availability layer. We log every user/attester actions like register/submit attestation/submit state transition proof and the according data. Then we perform state transition off-chain according to the order of when these events took place and everyone that does the same should arrive at the exact same global state! (assuming no re-org in the underlying data availability layer)
-
-You can take a look at [`Synchronizer`](https://github.com/Unirep/Unirep/blob/update-readme/packages/core/src/Synchronizer.ts) to better know how a user can fetch the events from the contract and build up the latest global state.
