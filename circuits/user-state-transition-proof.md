@@ -54,15 +54,13 @@ const blinded_user_state = hash(
     identity_nullifier, 
     user_tree_root, 
     epoch, 
-    from_epoch_key_nonce, 
-    0
+    from_epoch_key_nonce
 )
 const blinded_hash_chain = hash(
     identity_nullifier, 
     current_hash_chain, 
     epoch, 
-    from_epoch_key_nonce, 
-    0
+    from_epoch_key_nonce
 )
 ```
 
@@ -72,11 +70,15 @@ In the **start transition proof**, the circuit will compute the initial `blinded
 
 After `blinded_user_state` and `blinded_hash_chain` are submitted, the user can take them as public inputs and start to **process attestations** according to the `user_tree_root` and `current_hash_chain`. When the attestations limit reaches (e.g. a `processAttestations` circuit can process only 10 attestations per proof) or all attestations to the epoch key are processed, the circuit will output another `blinded_user_state` and `blinded_hash_chain` to continue processing attestations.
 
-![](<../.gitbook/assets/截圖 2022-07-22 下午2.28.01.png>)
+![How hash chain is processed in process attestations proofs.](<../.gitbook/assets/截圖 2022-07-23 下午3.55.55.png>)
+
+![How user state tree is processed in process attestation proofs.](<../.gitbook/assets/截圖 2022-07-23 下午4.06.07.png>)
 
 The `epoch_key_nonce` is used in the blinded user state and blinded hash chain to indicate the attestations of which epoch key is processed. In the final **`userStateTransition`** proof, it checks all epoch key with different `epoch_key_nonce` are processed and the hash chain result matches the [epoch tree](../protocol/glossary/trees.md#epoch-tree).
 
 There are only one user state tree result after all attestations are processed, so in the final proof it only takes the initial `blinded_user_state` and the final one and computes the new global state tree leaf. On the other hand, there are `numEpochKeyNoncePerEpoch` hash chains after processing attestations, so the final circuit will take `numEpochKeyNoncePerEpoch` `blinded_hash_chain` to check the epoch tree root.
+
+![How the final user state transition proof verifies hash chains and user states.](<../.gitbook/assets/截圖 2022-07-23 下午11.10.10.png>)
 
 The user state tree root is continuously updated: the output should be the input of another proof, so the `processAttestation` proof takes `blinded_user_state` as public input and output another `blinded_user_state`. The hash chain results might not be continuously. When all attestations of one epoch key is processed, the hash chain of the next epoch key should be `0` but not the previous hash chain. Therefore, `processAttestation` proof does not take `blinded_hash_chain` as input.
 
@@ -112,7 +114,24 @@ While verifying all of the proofs, there are the following things to check to ma
 
 #### 1. Check if user exists in the Global State Tree
 
+Check if `hash(identity_commitment, UST_root)` is one of the leaves in the global state tree of root `GST_root`.
+
 #### 2. Compute blinded public output
+
+```typescript
+const blinded_user_state = hash(
+    identity_nullifier, 
+    user_tree_root, 
+    epoch, 
+    from_epoch_key_nonce
+)
+const blinded_hash_chain = hash(
+    identity_nullifier, 
+    current_hash_chain, 
+    epoch, 
+    from_epoch_key_nonce
+)
+```
 
 {% hint style="info" %}
 See the whole circuit in [circuits/startTransition.circom](https://github.com/Unirep/Unirep/blob/main/packages/circuits/circuits/startTransition.circom)
@@ -154,11 +173,92 @@ See the whole circuit in [circuits/startTransition.circom](https://github.com/Un
 
 #### 1. Verify blinded input user state
 
+Check if
+
+```typescript
+const input_blinded_user_state = hash(
+    identity_nullifier, 
+    intermediate_user_state_tree_roots[0], 
+    epoch, 
+    from_nonce
+)
+```
+
 #### 2. Verify attestation hash chain
+
+Check if
+
+```typescript
+const current_hash_chain = hash(
+    hash(
+        attester_ids[i]
+        pos_reps[i],
+        neg_reps[i],
+        graffities[i],
+        sign_ups[i]
+    ),
+    prev_hash_chain
+)
+```
 
 #### 3. Process attestations and update user state tree
 
+Check `intermediate_user_state_tree_roots[i]` has leaves
+
+```typescript
+hash(
+    old_pos_reps[i],
+    old_neg_reps[i],
+    old_graffities[i],
+    old_sign_ups[i]
+)
+```
+
+with index `attester_ids`.
+
+And update the leaf by
+
+```typescript
+new_pos_reps[i] = pos_reps[i] + old_pos_reps[i]
+new_neg_reps[i] = neg_reps[i] + old_neg_reps[i]
+if (overwrite_graffities[i]) {
+    new_graffities[i] = graffities[i]
+} else {
+    new_graffities[i] = old_graffities[i]
+}
+    
+new_sign_ups[i] = sign_ups[i] || old_sign_ups[i]
+```
+
+And the new leaf
+
+```typescript
+hash(
+    new_pos_reps[i],
+    new_neg_reps[i],
+    new_graffities[i],
+    new_sign_ups[i]
+)
+```
+
+Should be one of the leaves in `intermediate_user_state_tree_roots[i+1]` with index `attester_ids[i]`.
+
 #### 4. Compute blinded public output
+
+```typescript
+const output_blinded_user_state = hash(
+    identity_nullifier, 
+    intermediate_user_state_tree_roots[n+1], 
+    epoch, 
+    to_nonce
+)
+const output_blinded_hash_chain = hash(
+    identity_nullifier, 
+    current_hash_chain, 
+    epoch, 
+    to_nonce
+)
+```
 
 {% hint style="info" %}
 See the whole circuit in [circuits/processAttestations.circom](https://github.com/Unirep/Unirep/blob/main/packages/circuits/circuits/processAttestations.circom)
@@ -195,11 +295,56 @@ See the whole circuit in [circuits/processAttestations.circom](https://github.co
 
 #### 1. Check if user exists in the Global State Tree
 
+Check if `hash(identity_commitment, UST_root)` is one of the leaves in the global state tree of root `GST_root`.
+
 #### 2. Process the hashchain of the epoch key specified by nonce `n`
+
+Get all blinded hash chains with nonce iterates from `0` to `n-1`
+
+```typescript
+const output_blinded_hash_chain = hash(
+    identity_nullifier, 
+    hash_chains[i], 
+    epoch, 
+    i
+)
+```
+
+Seal all hash chains
+
+```typescript
+const sealed_hash_chain = hash(1, hash_chains[i])
+```
+
+Check the epoch tree root with `epoch_keys[i]` and `hash_chains[i]`.
 
 #### 3. Check if blinded user state matches
 
+Output two blinded user states with `start_epoch_key_nonce` and `end_epoch_key_nonce`.
+
+```typescript
+const output_blinded_user_state[0] = hash(
+    identity_nullifier, 
+    intermediate_user_state_tree_roots[0], 
+    epoch, 
+    start_epoch_key_nonce
+)
+const output_blinded_user_state[1] = hash(
+    identity_nullifier, 
+    intermediate_user_state_tree_roots[1], 
+    epoch, 
+    end_epoch_key_nonce
+)
+```
+
 #### 4. Compute and output nullifiers and new GST leaf
+
+```typescript
+const new_GST_leaf = hash(
+    id_commitment, 
+    intermediate_user_state_tree_roots[1]
+)
+```
 
 {% hint style="info" %}
 See the whole circuit in [circuits/userStateTransition.circom](https://github.com/Unirep/Unirep/blob/main/packages/circuits/circuits/userStateTransition.circom)
