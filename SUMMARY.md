@@ -24,7 +24,11 @@
   * [User Sign Up Proof](circuits/user-sign-up-proof.md)
   * [User State Transition Proof](circuits/user-state-transition-proof.md)
 * [Contract](protocol/contract/README.md)
-  * [Unirep Smart Contract](contract/unirep-smart-contract.md)
+  * [Sign up](protocol/contract/sign-up.md)
+  * [Attestations](protocol/contract/attestations.md)
+  * [Epoch transition](protocol/contract/epoch-transition.md)
+  * [User state transition](protocol/contract/user-state-transition.md)
+  * [Verify proofs](protocol/contract/verify-proofs.md)
 
 ## 🌈 Package usage <a href="#package" id="package"></a>
 
