@@ -21,7 +21,7 @@
     * [13. Attesters/ Users verify the reputation proof](getting-started/start-with-cli-commands/13.-attesters-users-verify-the-reputation-proof.md)
     * [14. User generates sign up proof](getting-started/start-with-cli-commands/14.-user-generates-sign-up-proof.md)
     * [15. Attesters/ Users verify the sign up proof](getting-started/start-with-cli-commands/15.-attesters-users-verify-the-sign-up-proof.md)
-  * [Start with Typescript 📠](getting-started/start-with-typescript/README.md)
+  * [Start with Typescript 📠](getting-started/start-with-typescript.md)
     * [0. Install packages](getting-started/start-with-typescript/0.-install-packages.md)
     * [1. deploy](getting-started/start-with-typescript/1.-deploy.md)
     * [2. User signs up](getting-started/start-with-typescript/2.-user-signs-up.md)
