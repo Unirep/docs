@@ -12,7 +12,7 @@ npx ts-node cli/index.ts epochTransition
                   [-e ETH_PROVIDER] 
                   [-t] 
                   -x CONTRACT 
-                  (-dp | -d ETH_PRIVKEY)
+                  -d ETH_PRIVKEY
 ```
 
 * In a Unirep system, each epoch transition is called only once.
@@ -27,8 +27,6 @@ npx ts-node cli/index.ts epochTransition
   -t, --is-test         Indicate if the provider is a testing environment
   -x CONTRACT, --contract CONTRACT
                         The Unirep contract address
-  -dp, --prompt-for-eth-privkey
-                        Whether to prompt for the user's Ethereum private key and ignore -d / --eth-privkey
   -d ETH_PRIVKEY, --eth-privkey ETH_PRIVKEY
                         The deployer's Ethereum private key
 ```
@@ -38,3 +36,7 @@ npx ts-node cli/index.ts epochTransition
 ```
   -h, --help            Show this help message and exit.
 ```
+
+{% hint style="info" %}
+source: [core/cli/epochTransition.ts](https://github.com/Unirep/Unirep/blob/main/packages/core/cli/epochTransition.ts)
+{% endhint %}

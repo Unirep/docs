@@ -11,19 +11,11 @@ npx ts-node cli/index.ts userStateTransition
                   [-h] 
                   [-e ETH_PROVIDER] 
                   -id IDENTITY 
-                  [-b START_BLOCK] 
                   -x CONTRACT 
-                  (-dp | -d ETH_PRIVKEY)
+                  -d ETH_PRIVKEY
 ```
 
-* User provide the semaphore identity to generate a user state transition proof.
-* User state transition proof includes:
-  1. Whether the user has already signed up.
-  2. Which epoch keys the user has.
-  3. Whether the receive reputation all matches the hash-chain retrieves from the Unirep contract.
-  4. Whether user state tree root is correctly transitioned.
-  5. It computes a new GST leaf in the current epoch.
-  6. It computes the epoch key nullifiers.
+* It will generate [start transition proof](../circuits/user-state-transition-proof.md#1.-start-transition-proof), [process attestations proof](../circuits/user-state-transition-proof.md#2.-process-attestations-proof)s, and the [user state transition proof](../circuits/user-state-transition-proof.md#3.-user-state-transition-proof).
 
 ### Options
 
@@ -32,14 +24,10 @@ npx ts-node cli/index.ts userStateTransition
                         A connection string to an Ethereum provider. Default: http://localhost:8545
   -id IDENTITY, --identity IDENTITY
                         The (serialized) user's identity
-  -b START_BLOCK, --start-block START_BLOCK
-                        The block the Unirep contract is deployed. Default: 0
   -x CONTRACT, --contract CONTRACT
                         The Unirep contract address
-  -dp, --prompt-for-eth-privkey
-                        Whether to prompt for the user's Ethereum private key and ignore -d / --eth-privkey
   -d ETH_PRIVKEY, --eth-privkey ETH_PRIVKEY
-                        The deployer's Ethereum private key
+                        The user's Ethereum private key
 ```
 
 #### Options inherited from parent commands <a href="#options-inherited-from-parent-commands" id="options-inherited-from-parent-commands"></a>
@@ -47,3 +35,7 @@ npx ts-node cli/index.ts userStateTransition
 ```
   -h, --help            Show this help message and exit.
 ```
+
+{% hint style="info" %}
+source: [core/cli/userStateTransition.ts](https://github.com/Unirep/Unirep/blob/main/packages/core/cli/userStateTransition.ts)
+{% endhint %}

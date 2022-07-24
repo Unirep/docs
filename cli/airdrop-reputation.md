@@ -8,13 +8,14 @@ description: Attester sets airdrop amount and users can get airdrop reputation
 
 ```
 npx ts-node cli/index.ts setAirdropAmount
-                  [-h] [-e ETH_PROVIDER] 
+                  [-h] 
+                  [-e ETH_PROVIDER] 
                   -x CONTRACT 
                   -a AIRDROP 
-                  (-dp | -d ETH_PRIVKEY)
+                  -d ETH_PRIVKEY
 ```
 
-* The attester that has [registered](https://github.com/vivianjeng/UniRep/blob/git-book/introduction/README.md#1.-registration) in UniRep can set the airdrop amount and give it to users that register through the attester's account/smart contract.
+* The attester that has registered in UniRep can set the airdrop amount and give it to users that register through the attester's account/smart contract.
 * UniRep contract will also set the sign up flag to `1`.
 
 ### Options
@@ -26,11 +27,19 @@ npx ts-node cli/index.ts setAirdropAmount
                         The Unirep contract address
   -a AIRDROP, --airdrop AIRDROP
                         The amount of airdrop positive reputation given by the attester
-  -dp, --prompt-for-eth-privkey
-                        Whether to prompt for the user's Ethereum private key and ignore -d / --eth-privkey
   -d ETH_PRIVKEY, --eth-privkey ETH_PRIVKEY
-                        The deployer's Ethereum private key
+                        The attester's Ethereum private key
 ```
+
+#### Options inherited from parent commands <a href="#options-inherited-from-parent-commands" id="options-inherited-from-parent-commands"></a>
+
+```
+  -h, --help            Show this help message and exit.
+```
+
+{% hint style="info" %}
+source: [core/cli/setAirdropAmount.ts](https://github.com/Unirep/Unirep/blob/main/packages/core/cli/setAirdropAmount.ts)
+{% endhint %}
 
 ## `genUserSignUpProof`
 
@@ -40,7 +49,6 @@ npx ts-node cli/index.ts genUserSignUpProof
                   [-e ETH_PROVIDER] 
                   -id IDENTITY 
                   -a ATTESTER_ID 
-                  [-b START_BLOCK] 
                   -x CONTRACT
 ```
 
@@ -57,8 +65,6 @@ npx ts-node cli/index.ts genUserSignUpProof
                         The (serialized) user's identity
   -a ATTESTER_ID, --attester-id ATTESTER_ID
                         The attester id (in hex representation)
-  -b START_BLOCK, --start-block START_BLOCK
-                        The block the Unirep contract is deployed. Default: 0
   -x CONTRACT, --contract CONTRACT
                         The Unirep contract address
 ```
@@ -69,6 +75,10 @@ npx ts-node cli/index.ts genUserSignUpProof
   -h, --help            Show this help message and exit.
 ```
 
+{% hint style="info" %}
+source: [core/cli/genUserSignUpProof.ts](https://github.com/Unirep/Unirep/blob/main/packages/core/cli/genUserSignUpProof.ts)
+{% endhint %}
+
 ## `giveAirdrop`
 
 ```
@@ -78,7 +88,7 @@ npx ts-node cli/index.ts giveAirdrop
                   -p PUBLIC_SIGNALS 
                   -pf PROOF 
                   -x CONTRACT 
-                  (-dp | -d ETH_PRIVKEY)
+                  -d ETH_PRIVKEY
 ```
 
 * After receiving the user sign up proof, the attester knows that the user has been authenticated before and the attester can give the attester the airdrop reputation to let the user spend the reputation.
@@ -94,10 +104,8 @@ npx ts-node cli/index.ts giveAirdrop
                         The snark proof of the user's epoch key
   -x CONTRACT, --contract CONTRACT
                         The Unirep contract address
-  -dp, --prompt-for-eth-privkey
-                        Whether to prompt for the user's Ethereum private key and ignore -d / --eth-privkey
   -d ETH_PRIVKEY, --eth-privkey ETH_PRIVKEY
-                        The deployer's Ethereum private key
+                        The attester's Ethereum private key
 ```
 
 #### Options inherited from parent commands <a href="#options-inherited-from-parent-commands" id="options-inherited-from-parent-commands"></a>
@@ -105,3 +113,7 @@ npx ts-node cli/index.ts giveAirdrop
 ```
   -h, --help            Show this help message and exit.
 ```
+
+{% hint style="info" %}
+source: [core/cli/giveAirdrop.ts](https://github.com/Unirep/Unirep/blob/main/packages/core/cli/giveAirdrop.ts)
+{% endhint %}

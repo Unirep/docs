@@ -16,7 +16,6 @@ npx ts-node cli/index.ts genEpochKeyAndProof
                   [-e ETH_PROVIDER] 
                   -id IDENTITY 
                   -n EPOCH_KEY_NONCE 
-                  [-b START_BLOCK] 
                   -x CONTRACT
 ```
 
@@ -32,14 +31,11 @@ npx ts-node cli/index.ts genEpochKeyAndProof
 
 ```
   -e ETH_PROVIDER, --eth-provider ETH_PROVIDER
-                        A connection string to an Ethereum provider. Default: 
-                        http://localhost:8545
+                        A connection string to an Ethereum provider. Default: http://localhost:8545
   -id IDENTITY, --identity IDENTITY
                         The (serialized) user's identity
   -n EPOCH_KEY_NONCE, --epoch-key-nonce EPOCH_KEY_NONCE
                         The epoch key nonce
-  -b START_BLOCK, --start-block START_BLOCK
-                        The block the Unirep contract is deployed. Default: 0
   -x CONTRACT, --contract CONTRACT
                         The Unirep contract address
 ```
@@ -50,6 +46,10 @@ npx ts-node cli/index.ts genEpochKeyAndProof
   -h, --help            Show this help message and exit.
 ```
 
+{% hint style="info" %}
+source: [core/cli/genEpochKeyAndProof.ts](https://github.com/Unirep/Unirep/blob/main/packages/core/cli/genEpochKeyAndProof.ts)
+{% endhint %}
+
 ## `verifyEpochKeyProof`
 
 ```
@@ -58,7 +58,6 @@ npx ts-node cli/index.ts verifyEpochKeyProof
                   [-e ETH_PROVIDER] 
                   -p PUBLIC_SIGNALS 
                   -pf PROOF 
-                  [-b START_BLOCK] 
                   -x CONTRACT
 ```
 
@@ -73,8 +72,6 @@ npx ts-node cli/index.ts verifyEpochKeyProof
                         The snark public signals of the user's epoch key
   -pf PROOF, --proof PROOF
                         The snark proof of the user's epoch key
-  -b START_BLOCK, --start-block START_BLOCK
-                        The block the Unirep contract is deployed. Default: 0
   -x CONTRACT, --contract CONTRACT
                         The Unirep contract address
 ```
@@ -85,6 +82,10 @@ npx ts-node cli/index.ts verifyEpochKeyProof
   -h, --help            Show this help message and exit.
 ```
 
+{% hint style="info" %}
+source: [core/cli/verifyEpochKeyProof.ts](https://github.com/Unirep/Unirep/blob/main/packages/core/cli/verifyEpochKeyProof.ts)
+{% endhint %}
+
 ## `submitEpochKeyProof`
 
 ```
@@ -93,9 +94,8 @@ npx ts-node cli/index.ts submitEpochKeyProof
                   [-e ETH_PROVIDER] 
                   -p PUBLIC_SIGNALS 
                   -pf PROOF 
-                  [-b START_BLOCK] 
                   -x CONTRACT 
-                  (-dp | -d ETH_PRIVKEY)
+                  -d ETH_PRIVKEY
 ```
 
 * Epoch key proof should be submitted to UniRep and get the index of the proof.
@@ -111,14 +111,10 @@ npx ts-node cli/index.ts submitEpochKeyProof
                         The snark public signals of the user's epoch key
   -pf PROOF, --proof PROOF
                         The snark proof of the user's epoch key
-  -b START_BLOCK, --start-block START_BLOCK
-                        The block the Unirep contract is deployed. Default: 0
   -x CONTRACT, --contract CONTRACT
                         The Unirep contract address
-  -dp, --prompt-for-eth-privkey
-                        Whether to prompt for the user's Ethereum private key and ignore -d / --eth-privkey
   -d ETH_PRIVKEY, --eth-privkey ETH_PRIVKEY
-                        The deployer's Ethereum private key
+                        The attester's Ethereum private key
 ```
 
 #### Options inherited from parent commands <a href="#options-inherited-from-parent-commands" id="options-inherited-from-parent-commands"></a>
@@ -126,3 +122,7 @@ npx ts-node cli/index.ts submitEpochKeyProof
 ```
   -h, --help            Show this help message and exit.
 ```
+
+{% hint style="info" %}
+source: [core/cli/submitEpochKeyProof.ts](https://github.com/Unirep/Unirep/blob/main/packages/core/cli/submitEpochKeyProof.ts)
+{% endhint %}

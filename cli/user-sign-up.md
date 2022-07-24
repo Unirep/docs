@@ -16,24 +16,20 @@ npx ts-node cli/index.ts userSignUp
                   [-e ETH_PROVIDER] 
                   -c IDENTITY_COMMITMENT 
                   -x CONTRACT 
-                  (-dp | -d ETH_PRIVKEY)
+                  -d ETH_PRIVKEY
 ```
 
 ### Options
 
 ```
   -e ETH_PROVIDER, --eth-provider ETH_PROVIDER
-                        A connection string to an Ethereum provider. Default: 
-                        http://localhost:8545
+                        A connection string to an Ethereum provider. Default: http://localhost:8545
   -c IDENTITY_COMMITMENT, --identity-commitment IDENTITY_COMMITMENT
                         The user's identity commitment (in hex representation)
   -x CONTRACT, --contract CONTRACT
                         The Unirep contract address
-  -dp, --prompt-for-eth-privkey
-                        Whether to prompt for the user's Ethereum private key 
-                        and ignore -d / --eth-privkey
   -d ETH_PRIVKEY, --eth-privkey ETH_PRIVKEY
-                        The deployer's Ethereum private key
+                        The user's Ethereum private key
 ```
 
 #### Options inherited from parent commands <a href="#options-inherited-from-parent-commands" id="options-inherited-from-parent-commands"></a>
@@ -42,14 +38,18 @@ npx ts-node cli/index.ts userSignUp
   -h, --help            Show this help message and exit.
 ```
 
-## `attesterSignup`
+{% hint style="info" %}
+source: [core/cli/userSignUp.ts](https://github.com/Unirep/Unirep/blob/main/packages/core/cli/userSignUp.ts)
+{% endhint %}
+
+## `attesterSignUp`
 
 ```
-npx ts-node cli/index.ts attesterSignup 
+npx ts-node cli/index.ts attesterSignUp 
                   [-h] 
                   [-e ETH_PROVIDER] 
-                  -x CONTRACT
-                  (-dp | -d ETH_PRIVKEY)
+                  -x CONTRACT 
+                  -d ETH_PRIVKEY
 ```
 
 * When an attester signs up, the Unirep smart contract will record the address of the attester and assign an attester id to the attester.
@@ -59,15 +59,11 @@ npx ts-node cli/index.ts attesterSignup
 
 ```
   -e ETH_PROVIDER, --eth-provider ETH_PROVIDER
-                        A connection string to an Ethereum provider. Default: 
-                        http://localhost:8545
+                        A connection string to an Ethereum provider. Default: http://localhost:8545
   -x CONTRACT, --contract CONTRACT
                         The Unirep contract address
-  -dp, --prompt-for-eth-privkey
-                        Whether to prompt for the user's Ethereum private key 
-                        and ignore -d / --eth-privkey
   -d ETH_PRIVKEY, --eth-privkey ETH_PRIVKEY
-                        The deployer's Ethereum private key
+                        The attester's Ethereum private keyhin
 ```
 
 #### Options inherited from parent commands <a href="#options-inherited-from-parent-commands" id="options-inherited-from-parent-commands"></a>
@@ -75,3 +71,7 @@ npx ts-node cli/index.ts attesterSignup
 ```
   -h, --help            Show this help message and exit.
 ```
+
+{% hint style="info" %}
+source: [core/cli/attesterSignUp.ts](https://github.com/Unirep/Unirep/blob/main/packages/core/cli/attesterSignUp.ts)
+{% endhint %}

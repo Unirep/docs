@@ -18,14 +18,13 @@ And it will list 20 accounts including their private keys
 
 ## `deploy`
 
-```
+```bash
 npx ts-node cli/index.ts deploy 
                   [-h] 
-                  (-dp | -d DEPLOYER_PRIVKEY) 
-                  [-e ETH_PROVIDER]
+                  [-d DEPLOYER_PRIVKEY] 
+                  [-e ETH_PROVIDER] 
                   [-l EPOCH_LENGTH] 
                   [-f ATTESTING_FEE]
-                  [-td TREE_DEPTHS_CONFIG]
 ```
 
 * The address of the Unirep contract should be printed after executing the command.
@@ -34,22 +33,14 @@ npx ts-node cli/index.ts deploy
 ### Options
 
 ```
-  -dp, --prompt-for-deployer-privkey
-                        Whether to prompt for the deployer's Ethereum private 
-                        key and ignore -d / --deployer-privkey
   -d DEPLOYER_PRIVKEY, --deployer-privkey DEPLOYER_PRIVKEY
                         The deployer's Ethereum private key
   -e ETH_PROVIDER, --eth-provider ETH_PROVIDER
-                        A connection string to an Ethereum provider. Default: 
-                        http://localhost:8545
+                        A connection string to an Ethereum provider. Default: http://localhost:8545
   -l EPOCH_LENGTH, --epoch-length EPOCH_LENGTH
                         The length of an epoch in seconds. Default: 30
   -f ATTESTING_FEE, --attesting-fee ATTESTING_FEE
-                        The fee to make an attestation. Default: 0.01 eth (i.
-                        e., 10 * 16)
-  -td TREE_DEPTHS_CONFIG, --tree-depths-config TREE_DEPTHS_CONFIG
-                        The configuration of tree depths: circuit or contract.
-                         Default: circuit
+                        The fee to make an attestation. Default: 0.01 eth (i.e., 10 * 16)
 ```
 
 #### Options inherited from parent commands <a href="#options-inherited-from-parent-commands" id="options-inherited-from-parent-commands"></a>
@@ -57,3 +48,7 @@ npx ts-node cli/index.ts deploy
 ```
   -h, --help            Show this help message and exit.
 ```
+
+{% hint style="info" %}
+source: [core/cli/deploy.ts](https://github.com/Unirep/Unirep/blob/main/packages/core/cli/deploy.ts)
+{% endhint %}

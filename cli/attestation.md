@@ -10,31 +10,26 @@ description: Attester gives reputation to an epoch key
 npx ts-node cli/index.ts attest
                   [-h] 
                   [-e ETH_PROVIDER] 
-                  -i PROOF_INDEX 
+                  -toi TO_PROOF_INDEX 
+                  [-fromi FROM_PROOF_INDEX] 
                   -epk EPOCH_KEY 
                   [-pr POS_REP] 
                   [-nr NEG_REP] 
-                  [-gf GRAFFITI] 
+                  [-gf GRAFFITI]
                   [-s SIGN_UP] 
-                  -x CONTRACT
-                  (-dp | -d ETH_PRIVKEY)
+                  -x CONTRACT 
+                  -d ETH_PRIVKEY
 ```
-
-* `-d` is the attester's private key here,
-* `-epk` is the epoch key of the receiver,
-* `-i` is the proof index of the epoch key,
-* `-pr` (optional) is the positive reputation given to the user,
-* `-nr` (optional) is the negative reputation given to the user,
-* `-gf` (optional) is the graffiti for the reputation given to the user,
-* `-s` (optional) is the sign up flag to give to the user to indicate the attester authenticates the user's membership.
 
 ### Options
 
 ```
   -e ETH_PROVIDER, --eth-provider ETH_PROVIDER
                         A connection string to an Ethereum provider. Default: http://localhost:8545
-  -i PROOF_INDEX, --proof-index PROOF_INDEX
-                        The proof index of the user's epoch key
+  -toi TO_PROOF_INDEX, --to-proof-index TO_PROOF_INDEX
+                        The proof index of the receiver's epoch key
+  -fromi FROM_PROOF_INDEX, --from-proof-index FROM_PROOF_INDEX
+                        The proof index of the sender's epoch key
   -epk EPOCH_KEY, --epoch-key EPOCH_KEY
                         The user's epoch key to attest to (in hex representation)
   -pr POS_REP, --pos-rep POS_REP
@@ -47,10 +42,8 @@ npx ts-node cli/index.ts attest
                         Whether to set sign up flag to the user
   -x CONTRACT, --contract CONTRACT
                         The Unirep contract address
-  -dp, --prompt-for-eth-privkey
-                        Whether to prompt for the user's Ethereum private key and ignore -d / --eth-privkey
   -d ETH_PRIVKEY, --eth-privkey ETH_PRIVKEY
-                        The deployer's Ethereum private key
+                        The attester's Ethereum private key
 ```
 
 #### Options inherited from parent commands <a href="#options-inherited-from-parent-commands" id="options-inherited-from-parent-commands"></a>
@@ -58,3 +51,7 @@ npx ts-node cli/index.ts attest
 ```
   -h, --help            Show this help message and exit.
 ```
+
+{% hint style="info" %}
+source: [core/cli/attest.ts](https://github.com/Unirep/Unirep/blob/main/packages/core/cli/attest.ts)
+{% endhint %}

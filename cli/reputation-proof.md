@@ -16,26 +16,8 @@ npx ts-node cli/index.ts genReputationProof
                   [-r REPUTATION_NULLIFIER] 
                   [-mr MIN_REP]
                   [-gp GRAFFITI_PREIMAGE] 
-                  [-b START_BLOCK] 
                   -x CONTRACT
 ```
-
-* After user state transition, the new GST leaf contains the information of user state tree root.
-* User can prove that how much reputation he receives from a certain attester.
-* The proof includes:
-  1. Check if user exists in the Global State Tree
-  2. Check if the reputation given by the attester is in the user state tree
-  3. Check conditions on reputations and the pre-image of graffiti
-* Reputation and base64url encoded reputation proof will be printed
-* A string with `Unirep.reputation.proof.` prefix is the proof of this reputation
-* A string with `Unirep.reputation.publicSignals.` prefix it the public signals of this proof The public signals includes
-  * reputation nullifiers (default nullifier: 0)
-  * minimum reputation score the user wants to prove (default: 0 if the user don't want to prove the score)
-  * epoch key
-  * current epoch
-  * global state tree root
-  * whether the user wants to prove the pre-image of the graffiti (boolean: 0 or 1)
-  * the pre-image of the graffiti
 
 ### Options
 
@@ -54,10 +36,8 @@ npx ts-node cli/index.ts genReputationProof
                         The minimum positive score minus negative score the attester given to the user
   -gp GRAFFITI_PREIMAGE, --graffiti-preimage GRAFFITI_PREIMAGE
                         The pre-image of the graffiti for the reputation the attester given to the user (in hex representation)
-  -b START_BLOCK, --start-block START_BLOCK
-                        The block the Unirep contract is deployed. Default: 0
   -x CONTRACT, --contract CONTRACT
-                        The Unirep contract address
+                        The Unirep contract addressin
 ```
 
 #### Options inherited from parent commands <a href="#options-inherited-from-parent-commands" id="options-inherited-from-parent-commands"></a>
@@ -65,6 +45,10 @@ npx ts-node cli/index.ts genReputationProof
 ```
   -h, --help            Show this help message and exit.
 ```
+
+{% hint style="info" %}
+source: [core/cli/genReputationProof.ts](https://github.com/Unirep/Unirep/blob/main/packages/core/cli/genReputationProof.ts)
+{% endhint %}
 
 ## `verifyReputationProof`
 
@@ -75,7 +59,6 @@ npx ts-node cli/index.ts verifyReputationProof
                   [-ep EPOCH] 
                   -p PUBLIC_SIGNALS 
                   -pf PROOF 
-                  [-b START_BLOCK] 
                   -x CONTRACT
 ```
 
@@ -92,8 +75,6 @@ npx ts-node cli/index.ts verifyReputationProof
                         The snark public signals of the user's epoch key
   -pf PROOF, --proof PROOF
                         The snark proof of the user's epoch key
-  -b START_BLOCK, --start-block START_BLOCK
-                        The block the Unirep contract is deployed. Default: 0
   -x CONTRACT, --contract CONTRACT
                         The Unirep contract address
 ```
@@ -103,3 +84,7 @@ npx ts-node cli/index.ts verifyReputationProof
 ```
   -h, --help            Show this help message and exit.
 ```
+
+{% hint style="info" %}
+source: [core/cli/verifyReputationProof.ts](https://github.com/Unirep/Unirep/blob/main/packages/core/cli/verifyReputationProof.ts)
+{% endhint %}

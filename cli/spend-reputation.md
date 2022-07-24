@@ -13,12 +13,11 @@ npx ts-node cli/index.ts spendReputation
                   [-ep EPOCH] 
                   -p PUBLIC_SIGNALS 
                   -pf PROOF 
-                  [-b START_BLOCK] 
                   -x CONTRACT 
-                  (-dp | -d ETH_PRIVKEY)
+                  -d ETH_PRIVKEY
 ```
 
-* After user [generate a reputation proof with nullifiers](https://github.com/vivianjeng/UniRep/blob/git-book/cli/reputation-proof/README.md#genreputationproof), the attester can **spend** the reputation. In other words, the attester will send the negative reputation to the epoch key of the reputation proof, then the (`positive_reputation` - `negative_reputation`) reputation from the attester will decrease.
+* After user [generate a reputation proof with nullifiers](../circuits/reputation-proof.md), the attester can **spend** the reputation. In other words, the attester will send the negative reputation to the epoch key of the reputation proof, then the (`positive_reputation` - `negative_reputation`) reputation from the attester will decrease.
 
 ### Options
 
@@ -31,14 +30,10 @@ npx ts-node cli/index.ts spendReputation
                         The snark public signals of the user's epoch key
   -pf PROOF, --proof PROOF
                         The snark proof of the user's epoch key
-  -b START_BLOCK, --start-block START_BLOCK
-                        The block the Unirep contract is deployed. Default: 0
   -x CONTRACT, --contract CONTRACT
                         The Unirep contract address
-  -dp, --prompt-for-eth-privkey
-                        Whether to prompt for the user's Ethereum private key and ignore -d / --eth-privkey
   -d ETH_PRIVKEY, --eth-privkey ETH_PRIVKEY
-                        The deployer's Ethereum private key
+                        The attester's Ethereum private key
 ```
 
 #### Options inherited from parent commands <a href="#options-inherited-from-parent-commands" id="options-inherited-from-parent-commands"></a>
@@ -46,3 +41,7 @@ npx ts-node cli/index.ts spendReputation
 ```
   -h, --help            Show this help message and exit.
 ```
+
+{% hint style="info" %}
+source: [core/cli/spendReputation.ts](https://github.com/Unirep/Unirep/blob/main/packages/core/cli/spendReputation.ts)
+{% endhint %}
