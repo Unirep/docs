@@ -4,7 +4,7 @@ description: What is UniRep?
 
 # 👏 Welcome
 
-![UniRep: Privacy & provable reputation](.gitbook/assets/unirep.png)
+<figure><img src=".gitbook/assets/repository-unirep.png" alt="UniRep: Privacy &#x26; provable reputation"><figcaption><p>UniRep: Privacy &#x26; provable reputation</p></figcaption></figure>
 
 ### Overview
 
