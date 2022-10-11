@@ -4,23 +4,6 @@
 * [🧩 Introduction](introduction.md)
 * [🎮 Getting Started](getting-started/README.md)
   * [Install & build 🛠](getting-started/install-and-build.md)
-  * [Start with cli commands 🔌](getting-started/start-with-cli-commands/README.md)
-    * [0. Install and build](getting-started/start-with-cli-commands/0.-install-and-build.md)
-    * [1. Spin up the testing chain](getting-started/start-with-cli-commands/1.-spin-up-the-testing-chain.md)
-    * [2. Deploy Unirep contract](getting-started/start-with-cli-commands/2.-deploy-unirep-contract.md)
-    * [3. User generates semaphore identity](getting-started/start-with-cli-commands/3.-user-generates-semaphore-identity.md)
-    * [4. User signs up](getting-started/start-with-cli-commands/4.-user-signs-up.md)
-    * [5. Attester signs up](getting-started/start-with-cli-commands/5.-attester-signs-up.md)
-    * [6. User generates epoch key and epoch key proof](getting-started/start-with-cli-commands/6.-user-generates-epoch-key-and-epoch-key-proof.md)
-    * [7. Attesters/Users verify epoch key proof](getting-started/start-with-cli-commands/7.-attesters-users-verify-epoch-key-proof.md)
-    * [8. Submit epoch key proof to Unirep smart contract](getting-started/start-with-cli-commands/8.-submit-epoch-key-proof-to-unirep-smart-contract.md)
-    * [9. Attester attest to epoch key](getting-started/start-with-cli-commands/9.-attester-attest-to-epoch-key.md)
-    * [10. Epoch transition](getting-started/start-with-cli-commands/10.-epoch-transition.md)
-    * [11. User state transition](getting-started/start-with-cli-commands/11.-user-state-transition.md)
-    * [12. User generates reputation proof](getting-started/start-with-cli-commands/12.-user-generates-reputation-proof.md)
-    * [13. Attesters/ Users verify the reputation proof](getting-started/start-with-cli-commands/13.-attesters-users-verify-the-reputation-proof.md)
-    * [14. User generates sign up proof](getting-started/start-with-cli-commands/14.-user-generates-sign-up-proof.md)
-    * [15. Attesters/ Users verify the sign up proof](getting-started/start-with-cli-commands/15.-attesters-users-verify-the-sign-up-proof.md)
   * [Start with Typescript 📠](getting-started/start-with-typescript.md)
     * [0. Install packages](getting-started/start-with-typescript/0.-install-packages.md)
     * [1. deploy](getting-started/start-with-typescript/1.-deploy.md)
@@ -31,7 +14,6 @@
     * [6. Epoch transition](getting-started/start-with-typescript/6.-epoch-transition.md)
     * [7. User state transition](getting-started/start-with-typescript/7.-user-state-transition.md)
     * [8. Reputation proof](getting-started/start-with-typescript/8.-reputation-proof.md)
-  * [Computation happens off-chain ℹ️](getting-started/computation-happens-off-chain.md)
 
 ## ☀ Protocol
 
@@ -45,16 +27,7 @@
   * [Epoch Transition](protocol/glossary/epoch-transition.md)
   * [User State Transition](protocol/glossary/user-state-transition.md)
 * [Circuits](protocol/circuits/README.md)
-  * [Epoch Key Proof](circuits/epoch-key-proof.md)
-  * [Reputation Proof](circuits/reputation-proof.md)
-  * [User Sign Up Proof](circuits/user-sign-up-proof.md)
-  * [User State Transition Proof](circuits/user-state-transition-proof.md)
 * [Contract](protocol/contract/README.md)
-  * [Sign up](protocol/contract/sign-up.md)
-  * [Attestations](protocol/contract/attestations.md)
-  * [Epoch transition](protocol/contract/epoch-transition.md)
-  * [User state transition](protocol/contract/user-state-transition.md)
-  * [Verify proofs](protocol/contract/verify-proofs.md)
 
 ## 🌈 Package usage <a href="#package" id="package"></a>
 
@@ -62,18 +35,6 @@
 * [@unirep/circuits](package/circuits.md)
 * [@unirep/contracts](package/contracts.md)
 * [@unirep/core](package/core.md)
-* [@unirep/subgraph](package/subgraph.md)
-* [cli](package/cli/README.md)
-  * [Deploy Unirep Contract](cli/deploy-unirep-contract.md)
-  * [User Identity](cli/user-identity.md)
-  * [User Sign Up](cli/user-sign-up.md)
-  * [Epoch Key And Proof](cli/epoch-key-and-proof.md)
-  * [Attestation](cli/attestation.md)
-  * [Epoch transition](cli/epoch-transition.md)
-  * [User state transition](cli/user-state-transition.md)
-  * [Reputation Proof](cli/reputation-proof.md)
-  * [Airdrop Reputation](cli/airdrop-reputation.md)
-  * [Spend Reputation](cli/spend-reputation.md)
 
 ## 🌻 Applications
 
