@@ -11,10 +11,9 @@
 
 ```typescript
 hash(
-    EPOCH_KEY_NULLIFIER_DOMAIN, 
-    identityNullifier, 
-    epoch, 
-    nonce
+    attesterId,
+    fromEpoch,
+    identityNullifier
 )
 ```
 
@@ -26,10 +25,10 @@ hash(
 
 ```typescript
 hash(
-    REPUTATION_NULLIFIER_DOMAIN, 
-    identityNullifier, 
-    epoch, 
-    nonce, 
+    REPUTATION_NULLIFIER_DOMAIN,
+    identityNullifier,
+    epoch,
+    nonce,
     attesterId
 )
 ```
