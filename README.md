@@ -18,6 +18,14 @@ The high-level goal for **UniRep** is to be a base layer on top of which anyone 
 
 UniRep is originally proposed by BarryWhiteHat in [this ethresear.ch post](https://ethresear.ch/t/anonymous-reputation-risking-and-burning/3926)
 
+### v1.1
+
+Version 1.1 of the protocol reduces the complexity of user proofs to constant time. User can receive unlimited attestations while keeping the proving time constant.
+
+v1.1 also changes the tree structure, removing the user state tree completely. Instead each attester has their own state tree and epoch tree. As a result each attester can set their own epoch length.
+
+Read the description [here](https://github.com/unirep/unirep/issues/134).
+
 ### Quick Links
 
 * [Protocol introduction](introduction.md)
