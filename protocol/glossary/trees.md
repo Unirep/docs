@@ -8,7 +8,7 @@ description: The tree structures that are used in UniRep protocol.
 
 * A state tree stores the updated user state after a user signs up and a user performs the [user state transition](user-state-transition.md).
 * It is an **incremental merkle tree** with it's leaves storing users' `identityNullifier`s and starting reputation, e.g.
-  * a state tree leaf: `hash(`<mark style="color:green;">`identityNullifier`</mark>`,`` `<mark style="color:red;">`userStateTreeRoot`</mark>`)`
+  * a state tree leaf: `hash(identityNullifier, attesterId, epoch, posRep, negRep, graffiti, timestamp)`
   * The default leaf is `0`
 
 ![An example of state tree](../../.gitbook/assets/3.png)

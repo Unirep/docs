@@ -25,6 +25,8 @@ Inputs:
 - `attesterId` (public)
 - `posRep`
 - `negRep`
+- `graffiti`
+- `timestamp`
 - `stateTreeIndexes[STATE_TREE_DEPTH]`
 - `stateTreeElements[STATE_TREE_DEPTH]`
 - `identityNullifier`
@@ -37,7 +39,7 @@ Outputs:
 
 The user state transition proof allows a user to prove how much reputation they have at the end of an epoch and output a new state tree leaf. The proof calculates an inclusion proof for the state tree, and for each epoch key nonce an inclusion proof for the epoch tree.
 
-Once it has proved inclusion it sums the reputation values stored in the leaves and outputs a new state tree leaf for the next epoch.
+Once it has proved inclusion it sums the reputation values stored in the leaves. Then it takes the graffiti value with the highest timestamp value and outputs a new state tree leaf for the next epoch.
 
 Inputs:
 - `fromEpoch` (public)
@@ -49,12 +51,15 @@ Inputs:
 - `stateTreeElements[STATE_TREE_DEPTH]`
 - `startPosRep`
 - `startNegRep`
+- `startGraffiti`
+- `startTimestamp`
 - `newPosRep[EPOCH_KEY_NONCE_PER_EPOCH]`
 - `newNegRep[EPOCH_KEY_NONCE_PER_EPOCH]`
+- `newGraffiti[EPOCH_KEY_NONCE_PER_EPOCH]`
+- `newTimestamp[EPOCH_KEY_NONCE_PER_EPOCH]`
 - `epochTreeElements[EPOCH_KEY_NONCE_PER_EPOCH][EPOCH_TREE_DEPTH]`
 
 Outputs:
 - `stateTreeRoot`
 - `stateTreeLeaf`
 - `transitionNullifier`
-

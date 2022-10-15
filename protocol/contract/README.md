@@ -50,8 +50,11 @@ An attester can create an attestation to an epoch key by calling the `submitAtte
 
 ```solidity
 function submitAttestation(
-    Attestation calldata attestation,
+    uint256 targetEpoch,
     uint256 epochKey,
+    uint256 posRep,
+    uint256 negRep,
+    uint256 graffiti
 ) public
 ```
 
