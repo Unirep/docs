@@ -20,7 +20,7 @@ UniRep is originally proposed by BarryWhiteHat in [this ethresear.ch post](https
 
 ### v1.1
 
-Version 1.1 of the protocol reduces the complexity of user proofs to constant time. User can receive unlimited attestations while keeping the proving time constant.
+Version 1.1 of the protocol reduces the complexity of user proofs to constant time. Users can receive unlimited attestations while keeping the proving time constant.
 
 v1.1 also changes the tree structure, removing the user state tree completely. The global state tree and epoch tree are replaced by a state tree and epoch tree for each attester. As a result each attester can set their own epoch length. Users also execute a user state transition per attester, instead of 1 global transition.
 
