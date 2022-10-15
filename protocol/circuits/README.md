@@ -63,3 +63,25 @@ Outputs:
 - `stateTreeRoot`
 - `stateTreeLeaf`
 - `transitionNullifier`
+
+## Aggregate Epoch Keys
+
+Only the root of the epoch tree is stored on chain. This proof allows multiple leaves to be added or updated in the tree using a single proof. This proof is used to update the epoch tree root onchain root.
+
+Constants:
+- `KEY_COUNT`: The max number of keys to update per proof.
+
+Inputs:
+- `fromEpochRoot` (public)
+- `epoch`
+- `attesterId`
+- `hashchainIndex`
+- `epochTreeElements[KEY_COUNT][EPOCH_TREE_DEPTH]`
+- `epochKeys[KEY_COUNT`
+- `epochKeyBalances[KEY_COUNT][4]`
+- `oldEpochKeyHashes[KEY_COUNT]`
+- `epochKeyCount`
+
+Outputs:
+- `toRoot`
+- `hashchain`
