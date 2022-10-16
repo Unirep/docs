@@ -18,13 +18,13 @@
 ## ☀ Protocol
 
 * [Glossary](protocol/glossary/README.md)
+  * [Attestations](protocol/glossary/attestation.md)
   * [Users and Attesters](protocol/glossary/users-and-attesters.md)
   * [Epoch](protocol/glossary/epoch.md)
   * [Epoch Key](protocol/glossary/epoch-key.md)
   * [Reputation](protocol/glossary/reputation.md)
   * [Trees](protocol/glossary/trees.md)
   * [Nullifiers](protocol/glossary/nullifiers.md)
-  * [Epoch Transition](protocol/glossary/epoch-transition.md)
   * [User State Transition](protocol/glossary/user-state-transition.md)
 * [Circuits](protocol/circuits/README.md)
 * [Contract](protocol/contract/README.md)

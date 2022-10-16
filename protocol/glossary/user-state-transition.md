@@ -52,6 +52,5 @@ User performs user state transition by calling [`updateUserStateRoot()`](https:/
 See also
 
 * [Trees](trees.md)
-* [Epoch Transition](epoch.md)
 * [User State Transition Proof](../../circuits/user-state-transition-proof.md)
 {% endhint %}

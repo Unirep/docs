@@ -17,17 +17,9 @@ description: Definition of reputation in UniRep
 const hashReputation = hash(posRep, negRep, graffiti, timestamp)
 ```
 
-* The overall **reputation status** of a user is stored in the users latest state tree leaf.
-
-## Attestation
-
-* Attestations are stored as leaves in the epoch tree
-
 {% hint style="info" %}
-See also
+Reputation is hashed like this when it is inserted into the epoch tree. See also:
 
 * [Trees](trees.md)
-* [Epoch Transition](epoch-transition.md)
 * [User State Transition](user-state-transition.md)
-* [User State Transition Proof](../circuits/README.md)
 {% endhint %}

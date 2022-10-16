@@ -21,7 +21,6 @@ where `nonce` and be any value between `0` and `numEpochKeyNoncePerEpoch - 1`, s
 See also
 
 * [Epoch](epoch.md)
-* [Epoch Transition](epoch-transition.md)
 * [User State Transition](user-state-transition.md)
 * [Epoch Key Proof](../circuits/README.md)
 {% endhint %}

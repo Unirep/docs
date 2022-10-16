@@ -4,13 +4,22 @@ description: Definition of epoch in UniRep
 
 # Epoch
 
-* There is the notion of **epoch** in Unirep. Every `epochLength` blocks, one epoch ends and next epoch begins.
-* The epoch starts with 1. After an [epoch transition](epoch-transition.md), in other words, after an amount of blocks and someone performs `epochTransition()` in the UniRep smart contract, the `currentEpoch` increases by 1.
+Each attester can determine an epoch length, in seconds. User epoch keys are valid for 1 epoch.
+
+## Epoch Transition
+
+Epoch transitions happen automatically whenever an attester calls functions in the UniRep contract. The current epoch is defined by the function:
+
+```solidity
+(block.timestamp - attester.startTimestamp) / attester.epochLength;
+```
+
+This allows epochs to be updated automatically and precisely. When an epoch ends all epoch keys with owed balances must be committed by updating the epoch tree root.
 
 {% hint style="info" %}
 See also
 
 * [Epoch Key](epoch-key.md)
-* [Epoch Transition](epoch-transition.md)
 * [User State Transition](user-state-transition.md)
+* [Aggregate Epoch Keys Proof](../circuits/README.md)
 {% endhint %}
