@@ -4,6 +4,8 @@ description: The tree structures that are used in UniRep protocol.
 
 # Trees
 
+Each attester has a separate version of these trees each epoch.
+
 ## **State tree**
 
 * A state tree stores the updated user state after a user signs up and a user performs the [user state transition](user-state-transition.md).
@@ -23,7 +25,7 @@ description: The tree structures that are used in UniRep protocol.
 
 * An epoch tree is used to **track the reputation received by epoch keys**. Non-repudiability is enforced at the circuit and smart contract level.
 
-* An epoch tree is a **sparse merkle tree** with it's leaves storing the hash of reputation received by the epoch key, e.g.,
+* An epoch tree is a **sparse merkle tree** with its leaves storing the hash of reputation received by the epoch key, e.g.,
   * leaf index: epoch key
   * leaf value: `H(posRep, negRep, graffiti, timestamp)`
 
