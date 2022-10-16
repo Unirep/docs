@@ -2,11 +2,6 @@
 
 Below are descriptions of the proofs used in the UniRep protocol. If an input signal is not marked `(public)` it is private.
 
-{% hint style="info" %}
-GST stands for Global State Tree. This was a structure in UniRep v1.1 whose naming has not been updated. The structure being referenced is now called the state tree, and is attester specific.
-{% endhint %}
-
-
 ## Signup Proof
 
 The signup proof outputs a state tree leaf and an identity commitment for the user. The state tree leaf will have zero values for positive and negative reputation.
@@ -38,7 +33,7 @@ Inputs:
 
 Outputs:
 - `epoch_key`
-- `gst_root`
+- `state_tree_root`
 
 ## Prove Reputation Proof
 
