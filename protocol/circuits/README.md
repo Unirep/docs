@@ -19,7 +19,7 @@ Inputs:
 
 Outputs:
 - `identity_commitment`
-- `gst_leaf`
+- `state_tree_leaf`
 
 ## Epoch Key Proof
 
@@ -32,8 +32,8 @@ Inputs:
 - `neg_rep`
 - `graffiti`
 - `timestamp`
-- `gst_path_index[STATE_TREE_DEPTH]`
-- `gst_path_elements[STATE_TREE_DEPTH]`
+- `state_tree_indexes[STATE_TREE_DEPTH]`
+- `state_tree_elements[STATE_TREE_DEPTH]`
 - `identity_nullifier`
 
 Outputs:
@@ -49,8 +49,8 @@ Inputs:
 - `min_rep` (public)
 - `prove_graffiti` (public)
 - `graffiti_pre_image` (public)
-- `GST_path_index[STATE_TREE_DEPTH]`
-- `GST_path_elements[STATE_TREE_DEPTH]`
+- `state_tree_indexes[STATE_TREE_DEPTH]`
+- `state_tree_elements[STATE_TREE_DEPTH]`
 - `pos_rep`
 - `neg_rep`
 - `graffiti`
@@ -59,7 +59,7 @@ Inputs:
 
 Outputs:
 - `epoch_key`
-- `gst_root`
+- `state_tree_root`
 
 ## User State Transition Proof
 
@@ -73,8 +73,8 @@ Inputs:
 - `attester_id` (public)
 - `epoch_tree_root` (public)
 - `identity_nullifier`
-- `GST_path_index[STATE_TREE_DEPTH]`
-- `GST_path_elements[STATE_TREE_DEPTH]`
+- `state_tree_indexes[STATE_TREE_DEPTH]`
+- `state_tree_elements[STATE_TREE_DEPTH]`
 - `pos_rep`
 - `neg_rep`
 - `graffiti`
@@ -86,9 +86,9 @@ Inputs:
 - `epoch_tree_elements[EPOCH_KEY_NONCE_PER_EPOCH][EPOCH_TREE_DEPTH]`
 
 Outputs:
-- `gst_root`
-- `gst_leaf`
-- `epoch_transition_nullifier`
+- `state_tree_root`
+- `state_tree_leaf`
+- `transition_nullifier`
 
 ## Aggregate Epoch Keys
 
