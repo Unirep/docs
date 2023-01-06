@@ -70,7 +70,7 @@ source: [Unirep.sol/submitEpochKeyProof](https://github.com/Unirep/Unirep/blob/0
 
 An attester can submit the attestation with a **proof index**. A valid proof is either an [epoch key proof](../../circuits/epoch-key-proof.md), a [user sign up proof](../../circuits/user-sign-up-proof.md) or a [reputation proof](../../circuits/reputation-proof.md) with epoch key being one of the public signals. An attester can also submit attestations through a relayer or not.
 
-It it is from a [reputation proof](../../circuits/reputation-proof.md) we should include a **`fromProofIndex`** to make sure the attestation is from a valid reputation proof, or the attestation will fail.
+It is from a [reputation proof](../../circuits/reputation-proof.md) we should include a **`fromProofIndex`** to make sure the attestation is from a valid reputation proof, or the attestation will fail.
 
 ```solidity
 function submitAttestation(
@@ -117,7 +117,7 @@ A user include a [reputation proof](../../circuits/reputation-proof.md) to spend
 * publicSignals[maxReputationBudget + 6] = [ proveGraffiti ]
 * publicSignals[maxReputationBudget + 7] = [ graffitiPreImage ]
 * @param publicSignals The public signals of the reputation proof
- * @param proof The The proof of the reputation proof
+ * @param proof The proof of the reputation proof
  */
 function spendReputation(
     uint256[] memory publicSignals,
